@@ -1,0 +1,41 @@
+SQLite format 3^@^D^@^A^A^@@  ^@^@^@g^@^@^@<^@^@^@<^@^@^@^A^@^@^@D^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^A^@^@^@^@^@^@^@^@^@^@^>    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(80) NOT NULL UNIQUE
+)3^F^F^WG!^A^@indexsqlite_autoindex_auth_group_1auth_group^G�^]^C^G^W99^A�Utableauth_group_permissionsauth_group_permis>    "id" integer NOT NULL PRIMARY KEY,
+    "group_id" integer NOT NULL,
+    "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"),
+    UNIQUE ("group_id", "permission_id")
+)K^D^F^W_9^A^@indexsqlite_autoindex_auth_group_permissions_1auth_group_permissions^E�^N^A^G^W++^A�Stableauth_permission>    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(50) NOT NULL,
+    "content_type_id" integer NOT NULL,
+    "codename" varchar(100) NOT NULL,
+    UNIQUE ("content_type_id", "codename")
+)=^B^F^WQ+^A^@indexsqlite_autoindex_au^@^@^@^E^@^@^@^@-5^@^@^@^P^Y^@^@^@^K^O^@^@^@!"^@^@^@,2^@^@^@
+^E
+^@^@^@^\^C]^@^C�^C�^C�^C�^C�^C�^C�^C{^C�^C�^C�^Cu^C�^C�^C�^Co^C�^C�^C�^Ci^C�^C�^C�^Cc^C�^C�^C�^C]^@^@^@^@^@^@^@^@^@^@^@>^E^@5^A+Can add content type^Dadd_contenttype   ^E^@+^A#Can delete user^Cdelete_user ^H^E^@+^A#Can change user^Cchange_>^E^C^A^A^C      ^E^C^A^A^C^H^E^C^A^A^C^G^E^C^A^A^B^F^E^C^A^A^B^E^E^C^A^A^B^D^D^C        ^A^C^D^C        ^A^B^C^C       >^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^@^@^@^A^C�^@^C�^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>    "id" integer NOT NULL PRIMARY KEY,
+    ^@^@^A^Q^W++^A�Stableauth_permissionauth_permission^BCREATE TABLE "auth_permission" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "name" varchar(50) NOT NULL,
+    "content_type_id" integer NOT NULL,
+    "codename" varchar(100) NOT NULL,
+    UNIQUE ("content_type_id", "codename")
+)^@^@^@?Q+^A^@indexsqlite_autoindex_auth_permission_1auth_permission^C�^]^C^G^W99^A�Utableauth_group_permissionsauth_gr>    "id" integer NOT NULL PRIMARY KEY,
+    "group_id" integer NOT NULL,
+    "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"),
+    UNIQUE ("group_id", "permission_id")
+)K^D^F^W_9^A^@indexsqlite_autoindex_auth_group_permissions_1auth_group_permissions^E^@^@^@�^@^@^@^@^@^@^@^@^@^@^@^@^@^@>    "id" integer NOT NULL PRIMARY KEY,
+    "user_id" integer NOT NULL,
+    "group_id" integer NOT NULL REFERENCES "auth_group" ("id"),
+    UNIQUE ("user_id", "group_id")
+)?^H^F^WS-^A^@indexsqlite_autoindex_auth_user_groups_1auth_user_groups  �'      ^G^WAA^A�Ytableauth_user_user_permissio>    "id" integer NOT NULL PRIMARY KEY,
+    "user_id" integer NOT NULL,
+    "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id"),                                                   UNIQUE ("user_id", "permission_id")   
+    )S
+    ^F^WgA^A^@indexsqlite_autoindex_auth_user_user_permissions_1auth_user_user_permissions^M�D^O^G^W))^A�Ctabledjango_sessi>    "session_key" varchar(40) NOT NULL PRIMARY KEY,
+    "session_data" text NOT NULL,
+    "expire_date" datetime NOT NULL
+)^M^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@>^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^EM�=Ay0czyvk9fpxwn4x00enfowfhowui3jwdYmJmNmY1ZWUzMGEwYTQ4ZGNiZDZiYWMwMTI0OTAwZTUyY2U4OTE2OTp7InRva2VuIjp7ImFjY2Vzc190b>^@^@^@^G^C|^@^C�^C�^C�^C�^C�^C�^C|^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^@^@^@^O        ^@^@^@)^H^@^@^@(^G^@^@^@'^E^@^@^@&^C
+^C�^@^R^AB^@^B�^C�^A�^Ag^A�^A�^BE^Bj^B ^B�^B�^C#^Cm^C�^A�^AB^CH^B�^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>$^CM^Aontzw38hrpd5smcjzjfzwjzq5lh9phzs  $^CM^Ameuljfzlga83y5wne69k79eweoelvirn^H$^CM^A177vql3jmyiekqcz41civmmh1gadxrnp^>    "session_key" varchar(40) NOT NULL PRIMARY KEY,
+    "session_data" text NOT NULL,
+    "expire_date" datetime NOT NULL
+);^P^F^WO)^A^@indexsqlite_autoindex_django_session_1django_session^T�,^Q^G^W##^A�^_tabled�W^K^EM�=Ahwgort4rqdxqlduaxh1i>^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^@^@^@^A^C�^@^C�^@^C^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^@^@^@^R^A�^@^C�^C�^C�^C�^Ce^CF^C'^C^H^B�^B�^B�^B�^Bm^BN^B^P^B/^A�^A�^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@>^^^CA^A2015-07-10 20:32:12.656734       ^^^CA^A2015-05-22 20:04:15.984484^H^^^CA^A2015-04-21 05:23:14.918287^G^^^CA^A20>^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^E^@^UKAauth0005_alter_user_last_login_null2015-06-26 20:31:32.856247@  ^E^@^UGAauth0004_alter_user_username_opts2015-0>^C#     django_site^S^K^C-^Hdjango_admin_log^L^O^C^_    auth_user^S^D^C+^Aauth_permission^\^W^C^C3^Adjango_content_type>^A<^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@>^@^@^@^\^A�^@^C�^C�^C�^BK^C�^C�^C�^B:^Cz^Ch^CV^B*^C@^C'^C^N^B^S^B�^B�^B�^B^@^B�^B�^B�^A�^B�^Bv^B`^A�^@^@^@^@^@^@^@^@^@^>^Q^D^A#^A^Cdelete_user  ^Q^D^A#^A^Cchange_user^H^N^D^A^]^A^Cadd_user^G^R^D^A%^A^Bdelete_group^F^R^D^A%^A^Bchange_group^>^@^@^@^@^D^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^>^A�^A�^A�^A|^AZ^A5^A
+^@�^@�^@�^@x^@K^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@^@+^Y^E^@^A-7^Dview_contenttypeCan view content type^\^X^E^@^A^_'^Cview_>^E^@^A+5^Dadd_contenttypeCan add content type   ^E^@^A#+^Cdelete_userCan delete user ^H^E^@^A#+^Cchange_userCan change >
